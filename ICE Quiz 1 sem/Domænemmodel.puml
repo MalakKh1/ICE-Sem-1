@@ -1,0 +1,21 @@
+@startuml
+class Player {
+  name
+  score
+}
+
+class Quiz {
+  player
+  questions
+}
+
+class Question {
+  questionText
+  options
+  correctAnswer
+}
+
+Player -- Quiz
+Quiz -- Question
+
+@enduml

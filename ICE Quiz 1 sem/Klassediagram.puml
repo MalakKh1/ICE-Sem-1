@@ -1,0 +1,45 @@
+@startuml
+
+class Player {
+  - name: String
+  - score: int
+  + Player(name: String)
+  + getName(): String
+  + getScore(): int
+  + addPoint(): void
+  + resetScore(): void
+}
+
+class Question {
+  - questionText: String
+  - options: ArrayList<String>
+  - correctAnswer: char
+  + Question(questionText: String, options: ArrayList<String>, correctAnswer: char)
+  + getQuestionText(): String
+  + getOptions(): ArrayList<String>
+  + isCorrect(answer: char): boolean
+}
+
+class Quiz {
+  - player: Player
+  - questions: ArrayList<Question>
+  - currentQuestionIndex: int
+  + Quiz(player: Player)
+  + addQuestion(question: Question): void
+  + start(): void
+  + showNextQuestion(): void
+  + checkAnswer(answer: char): boolean
+  + hasMoreQuestions(): boolean
+  + displayResult(): void
+  + shuffleQuestions(): void
+}
+
+class Main {
+  + main(args: String[]): void
+}
+
+Player -- Quiz
+Quiz -- Question
+Main -- Quiz
+
+@enduml
